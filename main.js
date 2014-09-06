@@ -1,9 +1,22 @@
 function add_fields() {
+	var id = document.getElementById('numElements').value;
+	id++;
     var newspan = document.createElement('span');
-    newspan.innerHTML = '<div class="pure-u-1-2"><input type="text" placeholder="Address 1"></div><div class="pure-u-1-2"><select><option>Car</option><option>Bike</option><option>Walk</option><option>Pub. Transit</option></select></div>';
+	$('#numElements').val(id);
+    newspan.innerHTML = '<div class="pure-u-1-2"><input type="text" id=a' + id + ' placeholder="Address ' + id + '"></div><div class="pure-u-1-2"><select><option>Car</option><option>Bike</option><option>Walk</option><option>Pub. Transit</option></select></div>';
     document.getElementById('addresses').appendChild(newspan);
 }
 
+function add2_fields() {
+	id = 1;
+//	id++;
+//	document.getElementById('numElements').value = id;
+	$("").appendTo("addresses");
+}
+	
+function remove_fields() {
+	
+}
 /*
 function point(lat, lng) {
 	this.lat = lat;
