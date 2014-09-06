@@ -3,6 +3,8 @@
 <head>
 
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="style.css">
+
 <title>Rendezvous</title>
 
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -11,61 +13,54 @@
 
 
 <body>
-<div class="pure-g">
+
 	<!-- FORM FIELDS PANE -->
-    <div class="pure-u-1-3">
-        <form class="pure-form pure-form-aligned">
-            <fieldset>
-                <legend>Rendezvous</legend>
-                
-					<input type="hidden" name="id" id="numElements" value="2" />
+	<div class="formPane">
+		<form>
+        		<h1>Rendezvous</h1>
+			<input type="hidden" name="id" id="numElements" value="2" />
 					
-                <div id="addresses">
+		        <div id="addresses">
 
-			<input type="button" id="coordinates" onclick="get_coordinates();" value="Get Coordinates">
-                    
-                    <input type="button" id="more_fields" onclick="add_fields();" value="Add More">
-                    <br>
-                    
-                    <!-- PERSON ONE -->
-                    <div class="pure-u-1-2"><input type="text" id="a1" placeholder="Address 1"></div><div class="pure-u-1-2"><select><option>Car</option><option>Bike</option><option>Walk</option><option>Pub. Transit</option></select></div>
+				<input type="button" id="more_fields" onclick="add_fields();" value="Add More">
+				<br>
+				    
+				<!-- PERSON ONE -->
+				<input type="text" id="a1" placeholder="Address 1"><select><option>Car</option><option>Bike</option><option>Walk</option><option>Pub. Transit</option></select>
+				<br>
 
-                    <!-- PERSON TWO -->
-                    <div class="pure-u-1-2"><input type="text" id="a2" placeholder="Address 2"></div><div class="pure-u-1-2"><select><option>Car</option><option>Bike</option><option>Walk</option><option>Pub. Transit</option></select></div>
+				<!-- PERSON TWO -->
+				<input type="text" id="a2" placeholder="Address 2"><select><option>Car</option><option>Bike</option><option>Walk</option><option>Pub. Transit</option></select>
+				<br>
 					
-                </div>
-                <br>
-                
-                <input type="text" placeholder="Arrival Time">
-                
-                <label for="bar" class="pure-checkbox">
-                    <input id="bar" type="checkbox">Bar
-                </label>
-                
-                <label for="coffee" class="pure-checkbox">
-                    <input id="coffee" type="checkbox">Coffee
-                </label>
-                
-                <input type="text" placeholder="Other">
-                <br>
-                
-                <label for="algorithm">Optimization algorithm</label>
-                <select id="algorithm">
-                    <option>Minimum total distance</option>
-                    <option>Minimum longest distance</option>
-                    <option>Minimum total travel time</option>
-                    <option>Minimum longest travel time</option>
-                </select>
+		        </div>
+		        
+			<div id="parameters">
+				<input type="text" placeholder="Arrival Time">
 				
-                <button type="submit" class="pure-button pure-button-primary">Submit</button>
-            </fieldset>
-        </form>
-    </div>
+				<label for="bar" class="pure-checkbox">
+				    <input id="bar" type="checkbox">Bar</label>
+				<label for="coffee" class="pure-checkbox">
+				    <input id="coffee" type="checkbox">Coffee</label>
+				<input type="text" placeholder="Other">
+				
+				<label for="algorithm">Optimization</label>
+				<select id="algorithm">
+				    <option>Minimum total distance</option>
+				    <option>Minimum longest distance</option>
+				    <option>Minimum total travel time</option>
+				    <option>Minimum longest travel time</option>
+				</select>
+			</div>
+
+		        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+		</form>
+    	</div>
 	
 	<!-- GOOGLE MAP PANE -->
-    <div class="pure-u-2-3">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d94471.79926188296!2d-83.73768944999999!3d42.2733204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1409981073620" width="800" height="600" frameborder="0" style="border:0"></iframe>
-    </div>
+	<div class="mapPane">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d94471.79926188296!2d-83.73768944999999!3d42.2733204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1409981073620" frameborder="0" style="border:0"></iframe>
+	</div>
 
 </body>
 
