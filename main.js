@@ -2,8 +2,9 @@ function add_fields() {
     var newspan = document.createElement('span');
     newspan.innerHTML = '<div class="pure-u-1-2"><input type="text" placeholder="Address 1"></div><div class="pure-u-1-2"><select><option>Car</option><option>Bike</option><option>Walk</option><option>Pub. Transit</option></select></div>';
     document.getElementById('addresses').appendChild(newspan);
-}    
+}
 
+/*
 function point(lat, lng) {
 	this.lat = lat;
 	this.lng = lng;
@@ -64,6 +65,7 @@ function find_point(){
 	var result = new point(r_lat, r_lng);
 	
 */
+/*
 	alert("hello 1");
 	
 //	return result;
@@ -87,4 +89,5 @@ function gps(address) {
 	var point = new pt(lat, lng);
 	return pt;
 }
+*/
 	
