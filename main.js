@@ -5,6 +5,12 @@ function add_fields() {
 	$('#numElements').val(id);
     newspan.innerHTML = '<div class="pure-u-1-2"><input type="text" id=a' + id + ' placeholder="Address ' + id + '"></div><div class="pure-u-1-2"><select><option>Car</option><option>Bike</option><option>Walk</option><option>Pub. Transit</option></select></div>';
     document.getElementById('addresses').appendChild(newspan);
+
+$.getJSON('https://maps.google.com/maps/api/geocode/json?address=milano&sensor=false&key=AIzaSyC2Z7FZ2GdFBy_U4vCaEDmJohihq627ia0',function(data) {
+    var location = data.results[0].geometry.location.lat;
+    console.log(location);
+    // coordinates are location.lat and location.lng
+    });
 }
 
 function add2_fields() {
