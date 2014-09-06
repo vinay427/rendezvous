@@ -7,11 +7,15 @@ function add_fields() {
     document.getElementById('addresses').appendChild(newspan);
 }
 
-function get_coordinates(location) {
-	$.getJSON('https://maps.google.com/maps/api/geocode/json?address=' + location + '&sensor=false&key=AIzaSyC2Z7FZ2GdFBy_U4vCaEDmJohihq627ia0',function(data) {
+function get_coordinates() {
+	location = document.getElementById('a1').value;
+	console.log(location);
+	var coordinates = $.getJSON('https://maps.google.com/maps/api/geocode/json?address=' + location + '&sensor=false&key=AIzaSyC2Z7FZ2GdFBy_U4vCaEDmJohihq627ia0',function(data) {
 		var location = data.results[0].geometry.location;
 		var coordinates = [location.lat, location.lng];
+		return coordinates;	
 	});
+	console.log(coordinates);
 }
 
 function add2_fields() {
