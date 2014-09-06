@@ -19,12 +19,14 @@
 		<form>
         		<h1>Rendezvous</h1>
 			<input type="hidden" name="id" id="numElements" value="2" />
-					
+
 		        <div id="addresses">
 
 				<input type="button" id="more_fields" onclick="add_fields();" value="Add More">
 				<br>
-				    
+                <input type="button" id="coordinates" onclick="get_coordinates();" value="Get Coordinates">
+
+
 				<!-- PERSON ONE -->
 				<input type="text" id="a1" placeholder="Address 1"><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select>
 				<br>
@@ -32,18 +34,18 @@
 				<!-- PERSON TWO -->
 				<input type="text" id="a2" placeholder="Address 2"><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select>
 				<br>
-					
+
 		        </div>
-		        
+
 			<div id="parameters">
 				<input type="text" placeholder="Arrival Time">
-				
+
 				<label for="bar" class="pure-checkbox">
 				    <input id="bar" type="checkbox">Bar</label>
 				<label for="coffee" class="pure-checkbox">
 				    <input id="coffee" type="checkbox">Coffee</label>
 				<input type="text" placeholder="Other">
-				
+
 				<label for="algorithm">Optimization</label>
 				<select id="algorithm">
 				    <option>Minimum total distance</option>
@@ -53,10 +55,10 @@
 				</select>
 			</div>
 
-		        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+		        <button type="submit" onclick="get_coordinates();" class="pure-button pure-button-primary">Submit</button>
 		</form>
     	</div>
-	
+
 	<!-- GOOGLE MAP PANE -->
 	<div class="mapPane">
 		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d94471.79926188296!2d-83.73768944999999!3d42.2733204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1409981073620" frameborder="0" style="border:0"></iframe>
@@ -64,4 +66,4 @@
 
 </body>
 
-</html> 
+</html>
