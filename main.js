@@ -12,9 +12,8 @@ function get_coordinates() {
 	console.log(address);
 	var result = $.getJSON('https://maps.google.com/maps/api/geocode/json?address=' + address + '&sensor=false&key=AIzaSyC2Z7FZ2GdFBy_U4vCaEDmJohihq627ia0',function(data) {
 		var location = data.results[0].geometry.location;
-		var coordinates = location.lat//, location.lng];
-		//console.log(coordinates);
-		return coordinates;	
+		var coordinates = location//, location.lng];
+		$('#a2').val(coordinates.lat + ' ' + coordinates.lng);
 	});
 	console.log(result);
 	//alert("hello");

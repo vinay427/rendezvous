@@ -22,8 +22,8 @@ function gps(address) {
 }
 
 
-$.getJSON( "ajax/test.json", function( data ) {
-  var items = [];
+$.getJSON( "https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=' + api_key", function( data ) {
+  var items = [];4
   $.each( data, function( key, val ) {
     items.push( "<li id='" + key + "'>" + val + "</li>" );
   });
