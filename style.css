@@ -9,3 +9,17 @@ left: 25%;
 width: 100%;
 height: 100%;
 }
+
+.person input {
+position: fixed;
+left: 0;
+width: 10%;
+margin-bottom: 10px;
+}
+
+.person select {
+position: fixed;
+left: 15%;
+width: 10%;
+margin-bottom: 20px;
+}
