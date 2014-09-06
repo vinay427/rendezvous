@@ -3,7 +3,7 @@ function add_fields() {
 	id++;
     var newspan = document.createElement('span');
 	$('#numElements').val(id);
-    newspan.innerHTML = '<div class="pure-u-1-2"><input type="text" id=a' + id + ' placeholder="Address ' + id + '"></div><div class="pure-u-1-2"><select><option>Car</option><option>Bike</option><option>Walk</option><option>Pub. Transit</option></select></div>';
+    newspan.innerHTML = '<div class="pure-u-1-2"><input type="text" id=a' + id + ' placeholder="Address ' + id + '"></div><div class="pure-u-1-2"><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select></div>';
     document.getElementById('addresses').appendChild(newspan);
 }
 
