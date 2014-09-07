@@ -46,6 +46,14 @@ function add_autocompleteA1(){
 	var input = document.getElementById('a1')
 	var searchBox = new google.maps.places.SearchBox(input, {})
 }
+
+function add_autocompleteA1(){
+	var input = document.getElementById('a2')
+	var searchBox = new google.maps.places.SearchBox(input, {})
+}
+
+
+
 /*
 function point(lat, lng) {
 	this.lat = lat;
