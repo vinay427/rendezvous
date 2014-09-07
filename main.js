@@ -43,7 +43,7 @@ function remove_fields() {
 }
 
 function add_autocompleteA1(){
-	var input = getElementById('a1')
+	var input = document.getElementById('a1')
 	var searchBox = new google.maps.places.SearchBox(input, {})
 }
 /*
