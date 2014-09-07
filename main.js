@@ -10,7 +10,7 @@ function ret(param) {
 function add_fields() {
 	numElts++;
     var newspan = document.createElement('span');
-    newspan.innerHTML = '<div class="person"><input type="text" id="a' + numElts + '" placeholder="Address ' + numElts + '"><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select></div>';
+    newspan.innerHTML = '<div class="person"><input type="text" id="a' + numElts + '" placeholder="Address ' + numElts + 'onclick=add_autocomplete(' + numelts + ');' + "><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select></div>';
     document.getElementById('addresses').appendChild(newspan);
 	//console.log(numElts);
 }
