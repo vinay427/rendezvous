@@ -18,6 +18,7 @@
 		<form>
         		<center>
 				<img src="logo.png">
+				<div id="map"></div>
 			</center>
 
 		        <div id="addresses">
@@ -25,18 +26,20 @@
 				<div id="buttons">
 
 					<input type="button" id="more_fields" onclick="add_fields();" value="Add More">
-					<input type="button" id="coordinates" onclick="get_coordinates();" value="Get Coordinates">
+				<!--	<input type="button" id="coordinates" onclick="get_coordinates();" value="Get Coordinates">	-->
+
+					<input type="button" id="coordinates" onclick="initialize();" value="Get Coordinates">
 
 				</div>
 
 				<div class="person">
 					<!-- PERSON ONE -->
-					<input type="text" id="a1" placeholder="Address 1" onclick="add_autocompleteA1();"><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select>
+					<input type="text" id="a1" placeholder="Address 1" onclick="add_autocompleteA1();"><select id="t1"><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select>
 				</div>
 
 				<div class="person">
 					<!-- PERSON TWO -->
-					<input type="text" id="a2" placeholder="Address 2" onclick="add_autocompleteA2();"><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select>
+					<input type="text" id="a2" placeholder="Address 2" onclick="add_autocompleteA2();"><select id="t2"><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select>
 				</div>
 
 		        </div>
@@ -52,7 +55,7 @@
 				
 			</div>
 
-			<input type="button" id="submit" onclick="mothership()" value="Submit">	
+			<input type="button" id="submit" onclick="" value="Submit">	
 
 		</form>
     	</div>
