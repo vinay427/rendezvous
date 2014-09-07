@@ -1,11 +1,13 @@
 var numElts = 2;
+var result;
+var people = new Array();
 
-function ret(param) {
-	alert("hello");
-	alert(param.lat);
+//function ret(param) {
+//	alert("hello");
+//	alert(param.lat);
 	
-	return param;
-}
+//	return param;
+//}
 
 function add_fields() {
 	numElts++;
@@ -18,11 +20,13 @@ function add_fields() {
 function get_coordinates() {
 	var address = document.getElementById('a1').value;
 	console.log(address);
-	var result = $.getJSON('https://maps.google.com/maps/api/geocode/json?address=' + address + '&sensor=false&key=AIzaSyC2Z7FZ2GdFBy_U4vCaEDmJohihq627ia0',function(data) {
+	
+	return $.getJSON('https://maps.google.com/maps/api/geocode/json?address=' + address + '&sensor=false&key=AIzaSyC2Z7FZ2GdFBy_U4vCaEDmJohihq627ia0',function(data) {
 		var location = data.results[0].geometry.location;
+		result = location;
 		//var coordinates = [location.lat, location.lng];
-		$('#a2').val(location.lat + ' ' + location.lng);
-		ret(location);
+		//$('#a2').val(location.lat + ' ' + location.lng);
+		//return location;
 	});
 	//alert("allert2");
 	//console.log(result);
@@ -31,12 +35,22 @@ function get_coordinates() {
 	//return result;
 }
 
+
 function mothership() {
-	var people
-	for (i = 0; i < numElements; i++) {
+	//var people = new Array();
+	//alert("Hello");
 	
+	//var test = get_coordinates();
+	for (var i = 0; i < numElts; i++) {
+		var id = i + 1;
+		//var address = document.getElementById('a' + id).value;
+		$.when(get_coordinates()).then( function() {
+			people.push( result );
+		});
 	}
+	
 }
+
 
 function remove_fields() {
 
@@ -46,14 +60,6 @@ function add_autocompleteA1(){
 	var input = document.getElementById('a1')
 	var searchBox = new google.maps.places.SearchBox(input, {})
 }
-
-function add_autocompleteA1(){
-	var input = document.getElementById('a2')
-	var searchBox = new google.maps.places.SearchBox(input, {})
-}
-
-
-
 /*
 function point(lat, lng) {
 	this.lat = lat;
