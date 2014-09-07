@@ -42,7 +42,6 @@ function mothership() {
 			people.push( result );
 		});
 	}
-	getOpt();
 }
 
 function getOpt() {
@@ -107,6 +106,7 @@ console.log(people);
 	bestPoint[0] = x_cord_avg;
 	bestPoint[1] = y_cord_avg;
 	
+	alert("your meeting point is: " + bestPoint[0] + ", " + bestPoint[1]); 
     //return [x_cord_avg, y_cord_avg];
 }
 
