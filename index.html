@@ -39,7 +39,7 @@
 
 				<div class="person">
 					<!-- PERSON TWO -->
-					<input type="text" id="a2" placeholder="Address 2" onclick="add_autocompleteA2();"><select id="t2"><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select>
+					<input type="text" id="a2" placeholder="Address 2" onclick="add_autocompleteA2();"><select id="t2"><option value=0>Car</option><option value=1>Bike</option><option value=2>Walk</option><option value=3>Pub. Transit</option></select>
 				</div>
 
 		        </div>
@@ -89,14 +89,25 @@
 				</select>
 				
 			</div>
+
 				<input type="button" id="submit" onclick="mothership()" value="Submit">	
+
+
+			<input type="button" id="submit" onclick="mothership(); delay(1000); getOpt();" value="Submit">	
+			<input type="button" id="average" onclick="getOpt()" value="average">	
 
 		</form>
     	</div>
 
 	<!-- GOOGLE MAP PANE -->
 	<div class="mapPane">
-		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d94471.79926188296!2d-83.73768944999999!3d42.2733204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1409981073620" frameborder="0" style="border:0"></iframe>
+
+<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=-37.866963,144.980615&hl=es;z=14&amp;output=embed"></iframe><br />	
+<!--
+<iframe src="https://www.google.com/maps/embed/place?q=-37.866963%2C144.980615" frameborder="0" style="border:0"></iframe>
+-->
+<iframe id="map" src="https://www.google.com/maps/embed/place?q=" frameborder="0" style="border:0"></iframe>
+
 	</div>
 
 </body>
