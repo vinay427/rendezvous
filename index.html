@@ -2,7 +2,6 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 <link rel="stylesheet" href="style.css">
 
 <title>Rendezvous</title>
@@ -24,20 +23,22 @@
 			<input type="hidden" name="id" id="numElements" value="2" />
 
 		        <div id="addresses">
+				
+				<div id="buttons">
 
-				<input type="button" id="more_fields" onclick="add_fields();" value="Add More">
-				<input type="button" id="coordinates" onclick="get_coordinates();" value="Get Coordinates">
+					<input type="button" id="more_fields" onclick="add_fields();" value="Add More">
+					<input type="button" id="coordinates" onclick="get_coordinates();" value="Get Coordinates">
+
+				</div>
 
 				<div class="person">
 					<!-- PERSON ONE -->
 					<input type="text" id="a1" placeholder="Address 1"><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select>
-
 				</div>
 
 				<div class="person">
 					<!-- PERSON TWO -->
 					<input type="text" id="a2" placeholder="Address 2"><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select>
-					<br>
 				</div>
 
 		        </div>
@@ -50,17 +51,11 @@
 				<label for="coffee" class="pure-checkbox">
 				    <input id="coffee" type="checkbox">Coffee</label>
 				<input type="text" placeholder="Other">
-
-				<label for="algorithm">Optimization</label>
-				<select id="algorithm">
-				    <option>Minimum total distance</option>
-				    <option>Minimum longest distance</option>
-				    <option>Minimum total travel time</option>
-				    <option>Minimum longest travel time</option>
-				</select>
+				
 			</div>
 
-		        <button type="submit" onclick="get_coordinates();" class="pure-button pure-button-primary">Submit</button>
+			<input type="button" id="submit" onclick="" value="Submit">	
+
 		</form>
     	</div>
 
