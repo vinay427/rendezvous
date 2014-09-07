@@ -47,7 +47,7 @@ function add_autocompleteA1(){
 	var searchBox = new google.maps.places.SearchBox(input, {})
 }
 
-function add_autocompleteA1(){
+function add_autocompleteA2(){
 	var input = document.getElementById('a2')
 	var searchBox = new google.maps.places.SearchBox(input, {})
 }
