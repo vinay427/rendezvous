@@ -8,14 +8,11 @@ function ret(param) {
 }
 
 function add_fields() {
-	var id = document.getElementById('numElements').value;
-	id++;
-	//numElts++;
+	numElts++;
     var newspan = document.createElement('span');
-	$('#numElements').val(id);
-    newspan.innerHTML = '<div class="person"><input type="text" id="a' + id + '" placeholder="Address ' + id + '"><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select></div>';
+    newspan.innerHTML = '<div class="person"><input type="text" id="a' + numElts + '" placeholder="Address ' + numElts + '"><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select></div>';
     document.getElementById('addresses').appendChild(newspan);
-	console.log(numElts);
+	//console.log(numElts);
 }
 
 function get_coordinates() {
@@ -37,7 +34,9 @@ function get_coordinates() {
 function mothership() {
 	var people
 	for (i = 0; i < numElements; i++) {
-		
+	
+	}
+}
 
 function remove_fields() {
 
