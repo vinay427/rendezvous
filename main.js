@@ -12,7 +12,7 @@ var people = new Array();
 function add_fields() {
 	numElts++;
     var newspan = document.createElement('span');
-    newspan.innerHTML = '<div class="person"><input type="text" id="a' + numElts + '" placeholder="Address ' + numElts + '" onclick="add_autocomplete(' + numelts + ');"' + "><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select></div>";
+    newspan.innerHTML = '<div class="person"><input type="text" id="a' + numElts + '" placeholder="Address ' + numElts + '" onclick="add_autocomplete(' + numElts + ');"' + "><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select></div>";
     document.getElementById('addresses').appendChild(newspan);
 	//console.log(numElts);
 }
@@ -60,22 +60,18 @@ function add_autocompleteA1(){
 	var input = document.getElementById('a1');
 	var searchBox = new google.maps.places.Autocomplete(input, {});
 }
-<<<<<<< HEAD
-=======
 
 function add_autocompleteA2(){
 	var input = document.getElementById('a2');
 	var searchBox = new google.maps.places.Autocomplete(input, {});
 }
 
-function add_autocomplete(numelts){
-	var input = document.getElementById('a' + numelts);
+function add_autocomplete(numElts){
+	var input = document.getElementById('a' + numElts);
 	var searchBox = new google.maps.places.Autocomplete(input, {});
 }
 
 
-
->>>>>>> origin/master
 /*
 function point(lat, lng) {
 	this.lat = lat;
