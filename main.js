@@ -1,7 +1,7 @@
 var numElts = 2;
-var result;
+var result = new Array(3);
 var people = new Array();
-var bestPoint;
+var bestPoint = new Array(2);
 
 function delay(time) {
   var d1 = new Date();
@@ -25,63 +25,50 @@ function get_coordinates(i) {
 	
 	return $.getJSON('https://maps.google.com/maps/api/geocode/json?address=' + address + '&sensor=false&key=AIzaSyC2Z7FZ2GdFBy_U4vCaEDmJohihq627ia0',function(data) {
 		var location = data.results[0].geometry.location;
-		location.tt = document.getElementById('t' + i).value;
-		result = location;
-
+		result[0] = location.lat;
+		result[1] = location.lng;
+		result[2] = document.getElementById('t' + i).value;
+		//console.log(result);
 	});
 
 }
-
-function push() {
-		var person = new Array();
-		for (var i = 0; i < numElts; i++)
-			{
-				console.log("2");
-					var id = i + 1;
-					$.when(get_coordinates(id)).then( function()
-					{
-						person.push( result );
-					});
-			}
-			console.log(person);
-			people = person;
-}
 			
 function mothership() {
-	//$.when(function() 
-	//	{
-			
-			push();
-			//getOpt();
-			
-			//find_average();
-	//	}()).then( function() { find_average() } );
+	for (var i = 0; i < numElts; i++)
+	{
+		var id = i + 1;
+		$.when(get_coordinates(id)).then( function()
+		{
+			people.push( result );
+		});
+	}
+	getOpt();
 }
 
 function getOpt() {
-
+console.log(people);
     var x_cord_avg = 0;
     var total = 0;
 
     for(var j = 0; j < numElts; j++) {
 
-        if(people[j].tt == 0) {
-            x_cord_avg += people[j].lat * 11.5;
+        if(people[j][2] == 0) {
+            x_cord_avg += people[j][0] * 11.5;
             total += 11.5;
         }
 
-        else if(people[j].tt == 1) {
-            x_cord_avg += people[j].lat * 29.0;
+        else if(people[j][2] == 1) {
+            x_cord_avg += people[j][0] * 29.0;
             total += 29.0;
         }
 
-        else if(people[j].tt == 2) {
-            x_cord_avg += people[j].lat * 88.5;
+        else if(people[j][2] == 2) {
+            x_cord_avg += people[j][0] * 88.5;
             total += 88.5;
         }
 
-        else if(people[j].tt == 3) {
-            x_cord_avg += people[j].lat * 20.0;
+        else if(people[j][2] == 3) {
+            x_cord_avg += people[j][0] * 20.0;
             total += 20.0
         }        
     }
@@ -94,33 +81,31 @@ function getOpt() {
 
     for(var k = 0; k < numElts; k++) {
 
-        if(people[k].tt == 0) {
-            y_cord_avg += people[k].lng * 11.5;
+        if(people[k][2] == 0) {
+            y_cord_avg += people[k][1] * 11.5;
             y_total += 11.5;
         }
 
-        else if(people[k].tt == 1) {
-            y_cord_avg += people[k].lng * 29.0;
+        else if(people[k][2] == 1) {
+            y_cord_avg += people[k][1] * 29.0;
             y_total += 29.0;
         }
 
-        else if(people[k].tt == 2) {
-            y_cord_avg += people[k].lng * 88.5;
+        else if(people[k][2] == 2) {
+            y_cord_avg += people[k][1] * 88.5;
             y_total += 88.5;
         }
 
-        else if(people[k].tt == 3) {
-            y_cord_avg += people[k].lng * 20.0;
+        else if(people[k][2] == 3) {
+            y_cord_avg += people[k][1] * 20.0;
             y_total += 20.0
         }        
     }
 
     y_cord_avg = y_cord_avg/y_total;
 
-	bestPoint = result;
-	bestPoint.lat = x_cord_avg;
-	bestPoint.lng = y_cord_avg;
-	bestPoint.tt = 100;
+	bestPoint[0] = x_cord_avg;
+	bestPoint[1] = y_cord_avg;
 	
     //return [x_cord_avg, y_cord_avg];
 }
