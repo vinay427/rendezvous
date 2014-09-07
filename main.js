@@ -12,17 +12,18 @@ var people = new Array();
 function add_fields() {
 	numElts++;
     var newspan = document.createElement('span');
-    newspan.innerHTML = '<div class="person"><input type="text" id="a' + numElts + '" placeholder="Address ' + numElts + '" onclick="add_autocomplete(' + numElts + ');"' + "><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select></div>";
+    newspan.innerHTML = '<div class="person"><input type="text" id="a' + numElts + '" placeholder="Address ' + numElts + '" onclick="add_autocomplete(' + numElts + ');"' + "><select id=t" + numElts + "><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select></div>";
     document.getElementById('addresses').appendChild(newspan);
 	//console.log(numElts);
 }
 
-function get_coordinates() {
+function get_coordinates(i) {
 	var address = document.getElementById('a1').value;
 	console.log(address);
 	
 	return $.getJSON('https://maps.google.com/maps/api/geocode/json?address=' + address + '&sensor=false&key=AIzaSyC2Z7FZ2GdFBy_U4vCaEDmJohihq627ia0',function(data) {
 		var location = data.results[0].geometry.location;
+		location.tt = document.getElementById('t1').value;
 		result = location;
 		//var coordinates = [location.lat, location.lng];
 		//$('#a2').val(location.lat + ' ' + location.lng);
@@ -44,7 +45,7 @@ function mothership() {
 	for (var i = 0; i < numElts; i++) {
 		var id = i + 1;
 		//var address = document.getElementById('a' + id).value;
-		$.when(get_coordinates()).then( function() {
+		$.when(get_coordinates(id)).then( function() {
 			people.push( result );
 		});
 	}
