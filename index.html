@@ -7,6 +7,7 @@
 <title>Rendezvous</title>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="distance.js"></script>
 <script src="main.js"></script>
 </head>
 
@@ -18,14 +19,13 @@
 		<form>
         		<center>
 				<img src="logo.png">
-				<div id="map"></div>
 			</center>
 
 		        <div id="addresses">
-				
+				<div id="map"></div>
 				<div id="buttons">
 
-					<input type="button" id="more_fields" onclick="add_fields();" value="Add More">
+					<input type="button" id="more_fields" onclick="placeTypes();" value="Add More">
 				<!--	<input type="button" id="coordinates" onclick="get_coordinates();" value="Get Coordinates">	-->
 
 					<input type="button" id="coordinates" onclick="initialize();" value="Get Coordinates">
@@ -47,15 +47,49 @@
 			<div id="parameters">
 				<input type="text" placeholder="Arrival Time">
 
-				<label for="bar" class="pure-checkbox">
-				    <input id="bar" type="checkbox">Bar</label>
-				<label for="coffee" class="pure-checkbox">
-				    <input id="coffee" type="checkbox">Coffee</label>
-				<input type="text" placeholder="Other">
+				<select id="type">
+					<option value="airport">Airport</option>
+					<option value="bank">Bank</option>
+					<option value="bakery">Bakery</option>
+					<option value="casino">Casino</option>
+					<option value="church">Church</option>
+					<option value="city_hall">City Hall</option>
+					<option value="gas_station">Gas Station</option>
+					<option value="grocery_or_supermarket">Grocery/Supermarket</option>
+					<option value="gym">Gym</option>
+					<option value="hardware_store">Hardware Store</option>
+					<option value="health">Health</option>
+					<option value="hindu_temple">Hindu Temple</option>
+					<option value="home_goods_store">Home Goods Store</option>
+					<option value="hospital">Hospital</option>
+					<option value="library">Library</option>
+					<option value="liquor_store">Liquor Store</option>
+					<option value="lodging">Lodging</option>
+					<option value="meal_takeaway">Meal Takeaway</option>
+					<option value="mosque">Mosque</option>
+					<option value="movie_rental">Movie Rental</option>
+					<option value="movie_theater">Movie Theater</option>
+					<option value="museum">Museum</option>
+					<option value="night_club">Night Club</option>
+					<option value="park">Park</option>
+					<option value="parking">Parking</option>
+					<option value="police">Police</option>
+					<option value="post_office">Post Office</option>
+					<option value="restaurant">Restaurant</option>
+					<option value="rv_park">RV Park</option>
+					<option value="school">School</option>
+					<option value="shopping_mall">Shopping Mall</option>
+					<option value="store">Store</option>
+					<option value="subway_station">Subway Station</option>
+					<option value="taxi_stand">Taxi Stand</option>
+					<option value="train_station">Train Station</option>
+					<option value="travel_agency">Travel Agency</option>
+					<option value="university">University</option>
+					<option value="zoo">Zoo</option>
+				</select>
 				
 			</div>
-
-			<input type="button" id="submit" onclick="mothership()" value="Submit">	
+				<input type="button" id="submit" onclick="mothership()" value="Submit">	
 
 		</form>
     	</div>
