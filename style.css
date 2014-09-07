@@ -1,6 +1,7 @@
 .formPane {
 max-width: 25%;
 float: left;
+min-width: 200px;
 }
 
 .mapPane iframe {
@@ -14,10 +15,11 @@ input {
 position: relative;
 left: 0;
 width: 60%;
-margin: 10px 10px 0px 10px;
-padding: 10px 10px 10px 10px;
+margin: 10px 10px 0px 0px;
+padding: 10px 10px 10px 0px;
 border-radius: 5px;
 border: 1px solid #7491A3;
+min-width: 120px;
 }
 
 .person select {
@@ -28,18 +30,20 @@ margin-bottom: 20px;
 border-radius: 5px;
 padding: 10px 10px 10px 10px;
 border: 1px solid #7491A3;
-}
-
-#center {
-margin-left: auto;
-margin-right: auto;
-width: 50%;
+min-width: 120px;
 }
 
 #more_fields, #coordinates {
 width: 45%;
+min-width: 140px;
 }
 
 #submit {
 width: 90%;
+min-width: 140px;
+}
+
+img {
+width: 100%;
+max-width: 400px;
 }
