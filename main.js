@@ -42,6 +42,8 @@ function mothership() {
 			people.push( result );
 		});
 	}
+	document.getElementById('submit').style.visibility = 'hidden';
+	$("#commit").show();
 }
 
 function getOpt() {
