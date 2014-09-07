@@ -1,3 +1,9 @@
+function ret(param) {
+	alert("hello");
+	alert(param.lat);
+	return param;
+}
+
 function add_fields() {
 	var id = document.getElementById('numElements').value;
 	id++;
@@ -7,15 +13,17 @@ function add_fields() {
     document.getElementById('addresses').appendChild(newspan);
 }
 
-function get_coordinates() {
+function get_coordinates(address) {
 	var address = document.getElementById('a1').value;
 	console.log(address);
 	var result = $.getJSON('https://maps.google.com/maps/api/geocode/json?address=' + address + '&sensor=false&key=AIzaSyC2Z7FZ2GdFBy_U4vCaEDmJohihq627ia0',function(data) {
 		var location = data.results[0].geometry.location;
-		var coordinates = location//, location.lng];
-		$('#a2').val(coordinates.lat + ' ' + coordinates.lng);
+		//var coordinates = [location.lat, location.lng];
+		$('#a2').val(location.lat + ' ' + location.lng);
+		ret(location);
 	});
-	console.log(result);
+	//alert("allert2");
+	//console.log(result);
 	//alert("hello");
 	//alert(result[1]);
 	//return result;
@@ -30,6 +38,11 @@ function add2_fields() {
 
 function remove_fields() {
 
+}
+
+function add_autocompleteA1(){
+	var input = getElementById('a1')
+	var searchBox = new google.maps.places.SearchBox(input, {})
 }
 /*
 function point(lat, lng) {
