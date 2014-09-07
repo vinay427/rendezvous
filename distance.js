@@ -1,35 +1,31 @@
-42.298592, -83.721382
-42.261379, -83.746788
-42.284243, -83.779060
-getDestance()
+var map;
+var service;
+var infowindow;
 
-for x in (1, 100):
-    for y in (1, 100):
+function initialize() {
+  var pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
 
+  map = new google.maps.Map(document.getElementById('map'), {
+      center: pyrmont,
+      zoom: 15
+    });
 
-function gps(address) {
-    var api_key = 'AIzaSyC2Z7FZ2GdFBy_U4vCaEDmJohihq627ia0';
+  var request = {
+    location: pyrmont,
+    radius: '500',
+    types: ['store']
+  };
 
-    var text_address = address;
-
-    var coordinates = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address '&key=' + api_key;
-
-    var lat = coordinates.results[0].geometry.location.lat;
-    var lng = coordinates.results[0].geometry.location.lng;
-
-    var point = new pt(lat, lng);
-    return pt;
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
 }
 
-
-$.getJSON( "https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=' + api_key", function( data ) {
-  var items = [];4
-  $.each( data, function( key, val ) {
-    items.push( "<li id='" + key + "'>" + val + "</li>" );
-  });
-
-  $( "<ul/>", {
-    "class": "my-new-list",
-    html: items.join( "" )
-  }).appendTo( "body" );
-});
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+	console.log(place.name);
+      createMarker(results[i]);
+    }
+  }
+}
