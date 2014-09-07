@@ -39,6 +39,11 @@ function add2_fields() {
 function remove_fields() {
 
 }
+
+function add_autocompleteA1(){
+	var input = getElementById('a1')
+	var searchBox = new google.maps.places.SearchBox(input, {})
+}
 /*
 function point(lat, lng) {
 	this.lat = lat;
