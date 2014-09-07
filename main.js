@@ -1,19 +1,24 @@
+var numElts = 2;
+
 function ret(param) {
 	alert("hello");
 	alert(param.lat);
+	
 	return param;
 }
 
 function add_fields() {
 	var id = document.getElementById('numElements').value;
 	id++;
+	//numElts++;
     var newspan = document.createElement('span');
 	$('#numElements').val(id);
     newspan.innerHTML = '<div class="person"><input type="text" id="a' + id + '" placeholder="Address ' + id + '"><select><option id=0>Car</option><option id=1>Bike</option><option id=2>Walk</option><option id=3>Pub. Transit</option></select></div>';
     document.getElementById('addresses').appendChild(newspan);
+	console.log(numElts);
 }
 
-function get_coordinates(address) {
+function get_coordinates() {
 	var address = document.getElementById('a1').value;
 	console.log(address);
 	var result = $.getJSON('https://maps.google.com/maps/api/geocode/json?address=' + address + '&sensor=false&key=AIzaSyC2Z7FZ2GdFBy_U4vCaEDmJohihq627ia0',function(data) {
@@ -29,12 +34,10 @@ function get_coordinates(address) {
 	//return result;
 }
 
-function add2_fields() {
-	id = 1;
-//	id++;
-//	document.getElementById('numElements').value = id;
-	$("").appendTo("addresses");
-}
+function mothership() {
+	var people
+	for (i = 0; i < numElements; i++) {
+		
 
 function remove_fields() {
 
