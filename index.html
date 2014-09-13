@@ -2,71 +2,112 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<title>Rendezvous</title>
+<link rel="stylesheet" href="style.css">
 
+<title>Rendezvous</title>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="distance.js"></script>
 <script src="main.js"></script>
 </head>
 
 
 <body>
-<div class="pure-g">
+
 	<!-- FORM FIELDS PANE -->
-    <div class="pure-u-1-3">
-        <form class="pure-form pure-form-aligned">
-            <fieldset>
-                <legend>Rendezvous</legend>
-                
-					<input type="hidden" name="id" id="numElements" value="2" />
-					
-                <div id="addresses">
+	<div class="formPane">
+		<form>
+        		<center>
+				<img src="logo.png">
+			</center>
 
-			<input type="button" id="coordinates" onclick="get_coordinates();" value="Get Coordinates">
-                    
-                    <input type="button" id="more_fields" onclick="add_fields();" value="Add More">
-                    <br>
-                    
-                    <!-- PERSON ONE -->
-                    <div class="pure-u-1-2"><input type="text" id="a1" placeholder="Address 1"></div><div class="pure-u-1-2"><select><option>Car</option><option>Bike</option><option>Walk</option><option>Pub. Transit</option></select></div>
+		        <div id="addresses">
+				<div id="map"></div>
+				<div id="buttons">
 
-                    <!-- PERSON TWO -->
-                    <div class="pure-u-1-2"><input type="text" id="a2" placeholder="Address 2"></div><div class="pure-u-1-2"><select><option>Car</option><option>Bike</option><option>Walk</option><option>Pub. Transit</option></select></div>
-					
-                </div>
-                <br>
-                
-                <input type="text" placeholder="Arrival Time">
-                
-                <label for="bar" class="pure-checkbox">
-                    <input id="bar" type="checkbox">Bar
-                </label>
-                
-                <label for="coffee" class="pure-checkbox">
-                    <input id="coffee" type="checkbox">Coffee
-                </label>
-                
-                <input type="text" placeholder="Other">
-                <br>
-                
-                <label for="algorithm">Optimization algorithm</label>
-                <select id="algorithm">
-                    <option>Minimum total distance</option>
-                    <option>Minimum longest distance</option>
-                    <option>Minimum total travel time</option>
-                    <option>Minimum longest travel time</option>
-                </select>
+					<input type="button" id="more_fields" onclick="placeTypes();" value="Add More">
+				<!--	<input type="button" id="coordinates" onclick="get_coordinates();" value="Get Coordinates">	-->
+
+					<input type="button" id="coordinates" onclick="initialize();" value="Get Coordinates">
+
+				</div>
+
+				<div class="person">
+					<!-- PERSON ONE -->
+					<input type="text" id="a1" placeholder="Address 1" onclick="add_autocompleteA1();"><select id="t1"><option value=0>Car</option><option value=1>Bike</option><option value=2>Walk</option><option value=3>Pub. Transit</option></select>
+				</div>
+
+				<div class="person">
+					<!-- PERSON TWO -->
+					<input type="text" id="a2" placeholder="Address 2" onclick="add_autocompleteA2();"><select id="t2"><option value=0>Car</option><option value=1>Bike</option><option value=2>Walk</option><option value=3>Pub. Transit</option></select>
+				</div>
+
+		        </div>
+
+			<div id="parameters">
+				<input type="text" placeholder="Arrival Time">
+
+				<select id="type">
+					<option value="airport">Airport</option>
+					<option value="bank">Bank</option>
+					<option value="bakery">Bakery</option>
+					<option value="casino">Casino</option>
+					<option value="church">Church</option>
+					<option value="city_hall">City Hall</option>
+					<option value="gas_station">Gas Station</option>
+					<option value="grocery_or_supermarket">Grocery/Supermarket</option>
+					<option value="gym">Gym</option>
+					<option value="hardware_store">Hardware Store</option>
+					<option value="health">Health</option>
+					<option value="hindu_temple">Hindu Temple</option>
+					<option value="home_goods_store">Home Goods Store</option>
+					<option value="hospital">Hospital</option>
+					<option value="library">Library</option>
+					<option value="liquor_store">Liquor Store</option>
+					<option value="lodging">Lodging</option>
+					<option value="meal_takeaway">Meal Takeaway</option>
+					<option value="mosque">Mosque</option>
+					<option value="movie_rental">Movie Rental</option>
+					<option value="movie_theater">Movie Theater</option>
+					<option value="museum">Museum</option>
+					<option value="night_club">Night Club</option>
+					<option value="park">Park</option>
+					<option value="parking">Parking</option>
+					<option value="police">Police</option>
+					<option value="post_office">Post Office</option>
+					<option value="restaurant">Restaurant</option>
+					<option value="rv_park">RV Park</option>
+					<option value="school">School</option>
+					<option value="shopping_mall">Shopping Mall</option>
+					<option value="store">Store</option>
+					<option value="subway_station">Subway Station</option>
+					<option value="taxi_stand">Taxi Stand</option>
+					<option value="train_station">Train Station</option>
+					<option value="travel_agency">Travel Agency</option>
+					<option value="university">University</option>
+					<option value="zoo">Zoo</option>
+				</select>
 				
-                <button type="submit" class="pure-button pure-button-primary">Submit</button>
-            </fieldset>
-        </form>
-    </div>
-	
+			</div>
+
+			
+			<input type="button" id="submit" onclick="mothership()" value="SUBMIT">	
+			<input type="button" id="commit" onclick="getOpt()" value="COMMIT" style="display: none;">	
+
+		</form>
+    	</div>
+
 	<!-- GOOGLE MAP PANE -->
-    <div class="pure-u-2-3">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d94471.79926188296!2d-83.73768944999999!3d42.2733204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1409981073620" width="800" height="600" frameborder="0" style="border:0"></iframe>
-    </div>
+	<div class="mapPane">
+
+<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=-37.866963,144.980615&hl=es;z=14&amp;output=embed"></iframe><br />	
+<!--
+<iframe src="https://www.google.com/maps/embed/place?q=-37.866963%2C144.980615" frameborder="0" style="border:0"></iframe>
+-->
+<iframe id="map" src="https://www.google.com/maps/embed/place?q=" frameborder="0" style="border:0"></iframe>
+
+	</div>
 
 </body>
 
-</html> 
+</html>
